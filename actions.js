@@ -1,4 +1,6 @@
 $(document).ready(function () {
+
+    checkDeletedParam(); // Check on page load
     $("#push_payload").click(function () {
         revealPassword();
     });
@@ -23,19 +25,33 @@ $(document).ready(function () {
         const url = $('#secret_delete_url').attr('data-url');
         $.ajax({
             url: url, type: 'DELETE', success: function () {
-                location.reload();
+                window.location.href = updateQueryStringParameter(window.location.href, 'deleted', 'true');
             }, error: function (xhr, status, error) {
-                location.reload();
+                window.location.href = updateQueryStringParameter(window.location.href, 'deleted', 'true');
             }
         });
     });
 });
-
+function updateQueryStringParameter(uri, key, value) {
+    const re = new RegExp("([?&])" + key + "=.*?(&|$)", "i");
+    const separator = uri.indexOf('?') !== -1 ? "&" : "?";
+    if (uri.match(re)) {
+        return uri.replace(re, '$1' + key + "=" + value + '$2');
+    } else {
+        return uri + separator + key + "=" + value;
+    }
+}
 function revealPassword() {
     const payloadDiv = $('#push_payload');
     if (payloadDiv.length) {
         payloadDiv.css('transition', 'filter 250ms ease 0s');
         payloadDiv.css('filter', 'none');
+    }
+}
+function checkDeletedParam() {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('deleted') === 'true') {
+        $('#delete_alert').show();
     }
 }
 
