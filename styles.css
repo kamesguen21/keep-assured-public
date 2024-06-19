@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:100,200,300,400,500,600,700,800,900&display=swap');
+body {
+    font-family:var(--bs-body-font-family);
+    font-size:var(--bs-body-font-size);
+    font-weight:var(--bs-body-font-weight);
+    line-height:var(--bs-body-line-height);
+    color:var(--bs-body-color);
+    text-align:var(--bs-body-text-align);
+}
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: var(--bs-body-font-family);
+    font-size: var(--bs-body-font-size);
+    font-weight: var(--bs-body-font-weight);
+    line-height: var(--bs-body-line-height);
+    color: var(--bs-body-color);
+    text-align: var(--bs-body-text-align);
+    background-color: var(--bs-body-bg);
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+.d-flex {
+    display: flex !important;
+}
+
+.min-vh-100 {
+    min-height: 100vh !important;
+}
+
+.flex-column {
+    flex-direction: column !important;
+}
+
+:root {
+    --bs-yellow: #ffc107;
+    --bs-gray-300: #dee2e6;
+    --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --bs-body-font-family: var(--bs-font-sans-serif);
+    --bs-body-font-size: 1rem;
+    --bs-body-font-weight: 400;
+    --bs-body-line-height: 1.5;
+    --bs-body-color: #212529;
+    --bs-body-bg: #fff;
+    --bs-border-width: 1px;
+    --bs-border-style: solid;
+    --bs-border-color: #dee2e6;
+}
+
+@media (prefers-reduced-motion: no-preference){
+    :root {
+        scroll-behavior: smooth;
+    }
+}
+
+:root {
+    --bs-yellow: #f0ad4e;
+    --bs-gray-300: #ddd;
+    --bs-font-sans-serif: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    --bs-body-font-family: var(--bs-font-sans-serif);
+    --bs-body-font-size: 1.1rem;
+    --bs-body-font-weight: 400;
+    --bs-body-line-height: 1.5;
+    --bs-body-color: #343a40;
+    --bs-body-bg: #fff;
+}
+
+@media (prefers-color-scheme: dark){
+    :root {
+        --bs-yellow: #FFFF00;
+        --bs-gray-300: #dee2e6;
+        --bs-font-sans-serif: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+        --bs-body-font-family: var(--bs-font-sans-serif);
+        --bs-body-font-size: 1.1rem;
+        --bs-body-font-weight: 400;
+        --bs-body-line-height: 1.5;
+        --bs-body-color: var(--bs-gray-300);
+        --bs-link-color: var(--bs-yellow);
+        --bs-body-bg: #060606;
+    }
+}
+
+.justify-content-center {
+    justify-content: center !important;
+}
+
+.align-items-center {
+    align-items: center !important;
+}
+
+*,:before,:after {
+    box-sizing: border-box;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.display-1 {
+    font-size: calc(1.625rem + 4.5vw);
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+@media (min-width: 1200px){
+    .display-1 {
+        font-size: 5rem;
+    }
+}
+
+.border-bottom {
+    border-bottom: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
+}
+
+.p-3 {
+    padding: 1rem !important;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.display-1 {
+    font-family: 'Roboto Slab', 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+
+@media (prefers-color-scheme: dark){
+    .display-1 {
+        font-family: 'Roboto Slab', 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+        color: var(--bs-yellow);
+    }
+}

@@ -1,24 +1,48 @@
-document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById("push_payload").addEventListener("click", function () {
+$(document).ready(function () {
+    $("#push_payload").click(function () {
         revealPassword();
     });
-    document.querySelectorAll('.btn_copy').forEach(element => {
-        element.addEventListener('click', () => {
-            copyToClipboard();
+
+    $('.btn_copy').click(function () {
+        copyToClipboard();
+        $('.btn_copy').each(function () {
+            $(this).click(function () {
+                copyToClipboard();
+                const originalContent = $(this).html();
+                $(this).html("Copied!");
+                const element = $(this);  // Save the jQuery object
+                setTimeout(function () {
+                    element.html(originalContent);
+                }, 1000);
+            });
+        });
+    });
+
+    $("#deleteLink").click(function () {
+        $(this).html('Processing...')
+        $.ajax({
+            url: "{{url}}",
+            type: 'DELETE',
+            success: function () {
+                location.reload();
+            },
+            error: function (xhr, status, error) {
+                location.reload();
+            }
         });
     });
 });
 
 function revealPassword() {
-    const payloadDiv = document.getElementById('push_payload');
-    if (payloadDiv) {
-        payloadDiv.style.transition = 'filter 250ms ease 0s';
-        payloadDiv.style.filter = 'none';
+    const payloadDiv = $('#push_payload');
+    if (payloadDiv.length) {
+        payloadDiv.css('transition', 'filter 250ms ease 0s');
+        payloadDiv.css('filter', 'none');
     }
 }
 
 function copyToClipboard() {
-    const payloadDiv = document.getElementById('pass');
+    const payloadDiv = $('#pass')[0];
     const range = document.createRange();
     range.selectNode(payloadDiv);
     window.getSelection().removeAllRanges();
