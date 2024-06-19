@@ -20,13 +20,11 @@ $(document).ready(function () {
 
     $("#deleteLink").click(function () {
         $(this).html('Processing...')
+        const url = $('#secret_delete_url').attr('data-url');
         $.ajax({
-            url: "{{url}}",
-            type: 'DELETE',
-            success: function () {
+            url: url, type: 'DELETE', success: function () {
                 location.reload();
-            },
-            error: function (xhr, status, error) {
+            }, error: function (xhr, status, error) {
                 location.reload();
             }
         });
