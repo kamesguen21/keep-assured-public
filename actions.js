@@ -5,21 +5,16 @@ $(document).ready(function () {
     $("#push_payload").click(function () {
         revealPassword();
     });
-
-    $('.btn_copy').click(function () {
-        copyToClipboard();
-        $('.btn_copy').each(function () {
-            $(this).click(function () {
-                copyToClipboard();
-                $(this).html("Copied!");
-                const element = $(this);  // Save the jQuery object
-                setTimeout(function () {
-                    element.html(copy_btn_originalContent);
-                }, 1000);
-            });
+    $('.btn_copy').each(function () {
+        $(this).click(function () {
+            copyToClipboard();
+            $(this).html("Copied!");
+            const element = $(this);  // Save the jQuery object
+            setTimeout(function () {
+                element.html(copy_btn_originalContent);
+            }, 1000);
         });
     });
-
     $("#deleteLink").click(function () {
         $(this).html('Processing...')
         const url = $('#secret_delete_url').attr('data-url');
