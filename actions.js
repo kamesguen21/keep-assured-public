@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    const copy_btn_originalContent = "<em class=\"bi bi-clipboard-check \"></em> Copy to Clipboard";
 
     checkDeletedParam(); // Check on page load
     $("#push_payload").click(function () {
@@ -10,11 +11,10 @@ $(document).ready(function () {
         $('.btn_copy').each(function () {
             $(this).click(function () {
                 copyToClipboard();
-                const originalContent = $(this).html();
                 $(this).html("Copied!");
                 const element = $(this);  // Save the jQuery object
                 setTimeout(function () {
-                    element.html(originalContent);
+                    element.html(copy_btn_originalContent);
                 }, 1000);
             });
         });
