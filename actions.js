@@ -20,9 +20,9 @@ $(document).ready(function () {
         const url = $('#secret_delete_url').attr('data-url');
         $.ajax({
             url: url, type: 'DELETE', success: function () {
-                window.location.href = updateQueryStringParameter(window.location.href, 'deleted', 'true');
+                window.location.href = updateQueryStringParameter(window.location.href, 'd', 'true');
             }, error: function (xhr, status, error) {
-                window.location.href = updateQueryStringParameter(window.location.href, 'deleted', 'true');
+                window.location.href = updateQueryStringParameter(window.location.href, 'd', 'true');
             }
         });
     });
@@ -45,7 +45,7 @@ function revealPassword() {
 }
 function checkDeletedParam() {
     const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.get('deleted') === 'true') {
+    if (urlParams.get('d') === 'true') {
         $('#delete_alert').show();
     }
 }
